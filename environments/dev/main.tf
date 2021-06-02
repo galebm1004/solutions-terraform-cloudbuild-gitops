@@ -24,13 +24,13 @@ provider "google" {
 module "vpc" {
   source  = "../../modules/vpc"
   project = var.project
-  env     = "${local.env}"
+  env     = local.env
 }
 
 module "http_server" {
-  source  = "../../modules/http_server"
-  project = "var.project
-  subnet  = "${module.vpc.subnet}"
+  source  = ../../modules/http_server
+  project = var.project
+  subnet  = module.vpc.subnet
 }
 
 module "firewall" {
