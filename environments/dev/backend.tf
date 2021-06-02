@@ -15,7 +15,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "dogwood-actor-207004-tfstate"
-    prefix = "env/dev"
+    bucket = dogwood-actor-207004-tfstate
+    prefix = env/dev
   }
 }
