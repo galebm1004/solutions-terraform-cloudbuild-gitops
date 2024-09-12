@@ -14,7 +14,7 @@
 
 
 locals {
-  "env" = dev
+  env = dev
 }
 
 provider "google" {
@@ -24,17 +24,18 @@ provider "google" {
 module "vpc" {
   source  = "../../modules/vpc"
   project = var.project
-  env     = "${local.env}"
+  env     = local.env
 }
 
 module "http_server" {
   source  = "../../modules/http_server"
-  project = "var.project
-  subnet  = "${module.vpc.subnet}"
+  project = var.project
+  subnet  = module.vpc.subnet
 }
 
 module "firewall" {
   source  = "../../modules/firewall"
   project = var.project
-  subnet  = "${module.vpc.subnet}"
+  subnet  = module.vpc.subnet
 }
+
